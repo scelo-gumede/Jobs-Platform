@@ -1,0 +1,36 @@
+# Node.js dependencies
+/apiJobs/node_modules/
+
+# Environment variables
+/apiJobs/.env
+/apiJobs/.env.local
+/apiJobs/.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build output
+/apiJobs/dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE or Editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Coverage directory used by testing tools
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Ignore package lock files
+package-lock.json
+yarn.lock
