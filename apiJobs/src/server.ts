@@ -27,7 +27,7 @@ app.use(errMiddleware)
 
 //start server 
 
-const uri =process.env.MONGO_URI  //"mongodb+srv://scelogumede95:72664453@practice.kmvig.mongodb.net/JobsDatabasese?retryWrites=true&w=majority&appName=practice";
+const uri =process.env.MONGO_URI  
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
