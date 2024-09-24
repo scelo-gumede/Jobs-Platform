@@ -5,10 +5,23 @@ const mongoose = require('mongoose');
 import errMiddleware from "./middleware/endMiddleware";
 import notFound from "./middleware/notFound";
 import userRoute from "./routes/userRoutes"
+import nodemailer from "nodemailer"
+import loggedIn from "./routes/companyRoutes"
+import auth from "./middleware/authMiddleware";
 
 
 //initial config 
 const app = express()
+export const transporter = nodemailer.createTransport({
+  "service":"gmail",
+  auth:{
+    user:process.env.GMAIL_USER,
+    pass:process.env.GMAIL_PASS
+  }
+
+})
+
+
 
 
 //start middleware 
@@ -17,6 +30,7 @@ app.use(express.json())
 
 //routes
 app.use("/auth",userRoute)
+app.use("/home",auth,loggedIn)
 
 
 //end middleware

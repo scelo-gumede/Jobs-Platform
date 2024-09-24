@@ -34,7 +34,10 @@ const userSchema = new Schema({
 },{
     methods:{
         generateWT:function(){
-            return jwt.sign()
+            return jwt.sign({userId:this._id},process.env.JWT_TOKEN,{expiresIn:"30d"})
+        },
+        comparePass:function(password){
+            return bcrypt.compare(password,this.password)
         }
     },
     timestamps:true

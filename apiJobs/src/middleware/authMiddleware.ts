@@ -7,19 +7,22 @@ const jwt =jsonwebtoken
 
 const auth =async(req,res,next)=>{
 
-    const authorization = req.headers
-
-    if(!authorization || !authorization.startsWith("Bearer ")){
-        next(unauthenticated)
+    const authorization = req.headers['authorization'];
+    
+    if (!authorization || !authorization.startsWith("Bearer ")) {
+        return res.status(401).json({ message: "User not authenticated" });
     }
+    
     const token = authorization.split(" ")[1]
-    const decoded = await jwt.verify(token,"scelostoken")
+    const decoded = await jwt.verify(token,process.env.JWT_TOKEN)
     const{userId}=decoded
 
-    const user = User.findById({_id:userId})
+    const user =await User.findById({_id:userId})
+
+    
 
     if(!user){
-        next(unauthenticated)
+        throw new Error("user not authenticated")
     }else{
         req.user=user
         next()
