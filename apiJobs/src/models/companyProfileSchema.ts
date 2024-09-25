@@ -24,7 +24,8 @@ const companyProfileSchema= new Schema({
     companyId:{
         type:Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        required:true,
+        unique:true
     }
 },{
     timestamps:true

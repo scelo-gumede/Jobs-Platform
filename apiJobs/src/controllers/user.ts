@@ -11,8 +11,11 @@ export const register = async (req,res)=>{
     res.status(StatusCodes.CREATED).json({token})
 }
 
+
 export const signIn = async (req,res)=>{
     const{password,email}=req.body
+
+    console.log(req.body)
     if(!password || !email ){
         throw generateError("please enter all the require",StatusCodes.BAD_REQUEST)
     }

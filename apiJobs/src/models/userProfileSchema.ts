@@ -1,11 +1,14 @@
 import mongoose,{mongo, Schema} from "mongoose";
+import Joi from "joi"
+
 
 
 const userProfile = new Schema({
     userId:{
         type:Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        required:true,
+        unique:true
     },
     cv:{
         type:String
@@ -23,7 +26,21 @@ const userProfile = new Schema({
     timestamps:true
 })
 
+const experience = Joi.object({
+    jobTitle:Joi.string(),
+    company:Joi.string(),
+    startDate:Joi.date(),
+    endDate:Joi.date(),
+    description:Joi.string()
+})
+
+export const schemaUserProfile = Joi.object({
+    cv:Joi.string().required(),
+    jobExperirence:Joi.array().items(experience)
+})
 
 
 
-export default mongoose.model("Userprofile",userProfile)
+
+
+export const UserProfile= mongoose.model("UserProfile",userProfile)

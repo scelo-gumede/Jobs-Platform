@@ -7,7 +7,7 @@ export const emailUniqueness = async(req,res,next)=>{
     const{email}=req.body
     const existingEmail = await User.findOne({email})
     if(existingEmail){
-        throw generateError("email already exist",StatusCodes.BAD_REQUEST)
+        return  next(generateError("email already exist",StatusCodes.BAD_REQUEST))
     }
     next()
 }

@@ -1,12 +1,13 @@
 import { StatusCodes } from "http-status-codes";
 import { schemaProfile } from "../models/companyProfileSchema";
+import { generateError } from "../errors/customError";
 
 
 export const shemaCompanyProfile =(req,res,next)=>{
     const{error}=schemaProfile.validate(req.body)
 
     if(error){
-        res.status(StatusCodes.BAD_REQUEST).json({msg:error.details[0].message})
+        return next(generateError(error.details[0].message,StatusCodes.BAD_REQUEST))
     }
     next()
 }
