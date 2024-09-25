@@ -1,12 +1,14 @@
-import { timeLog } from "console";
+
 import mongoose,{Schema} from "mongoose";
+import Joi from "joi"
 
 
 const applicationSchema = new Schema({
     userApplied : {
         type : Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        required:true,
+        unique:true
     },
     job:{
         type:Schema.Types.ObjectId,
@@ -27,6 +29,9 @@ const applicationSchema = new Schema({
 })
 
 
+export const applicationJoi = Joi.object({
+    coverLetter:Joi.string().required()
+})
 
 
-export default mongoose.model("application",applicationSchema)
+export const Application = mongoose.model("application",applicationSchema)

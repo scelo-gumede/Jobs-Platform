@@ -1,11 +1,13 @@
 import mongoose,{Schema} from "mongoose";
-import Joi from "joi"
+import Joi, { required } from "joi"
 
 
 
 
 const jobsSchema = new Schema({
-    title :String,
+    title :{type:String,
+            required:true
+    },
     description:{
         type:String,
         minlength:[10,"the minimum characters is 10"],
@@ -13,26 +15,35 @@ const jobsSchema = new Schema({
         required:true
     },
     location:String,
-    salary:Number,
+    salary:{
+        type:Number,
+        required:true
+    },
     requirements:{
-        type:[String]
+        type:[String],
+        required:true
     },
     isActive:{
         type:Boolean,
         default:false
     },
-    tags:[String]
+    tags:[String],
+    createdBy:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    }
 },{
     timestamps:true
 })
 
 
-export const applicationSchema = Joi.object({
+export const jobsValidSchema = Joi.object({
     title:Joi.string().required(),
     description:Joi.string().min(10).max(200).required(),
     location:Joi.string().required(),
     salary:Joi.number().required(),
-    requirement:Joi.array().items(Joi.string().required()).min(1),
+    requirements:Joi.array().items(Joi.string().required()).min(1),
     isActive:Joi.boolean(),
     tags:Joi.array().items(Joi.string())
 })

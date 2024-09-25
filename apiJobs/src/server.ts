@@ -9,6 +9,9 @@ import nodemailer from "nodemailer"
 import loggedIn from "./routes/companyRoutes"
 import auth from "./middleware/authMiddleware";
 import userProfile from "./routes/loggedUserRoutes"
+import jobs from "./routes/jobsRoutes"
+import apply from "./routes/applicationRoutes"
+
 
 
 //initial config 
@@ -33,6 +36,8 @@ app.use(express.json())
 app.use("/auth",userRoute)
 app.use("/home",auth,userProfile)
 app.use("/home",auth,loggedIn)
+app.use("/home",auth,jobs)
+app.use("/home",auth,apply)
 
 
 //end middleware
