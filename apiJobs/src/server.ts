@@ -11,6 +11,7 @@ import auth from "./middleware/authMiddleware";
 import userProfile from "./routes/loggedUserRoutes"
 import jobs from "./routes/jobsRoutes"
 import apply from "./routes/applicationRoutes"
+import cors from "cors"
 
 
 
@@ -30,6 +31,7 @@ export const transporter = nodemailer.createTransport({
 
 //start middleware 
 app.use(express.json())
+app.use(cors())
 
 
 //routes

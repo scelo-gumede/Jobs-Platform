@@ -19,7 +19,7 @@ export const updateProfile = async(req,res)=>{
 
     const profile = await CompanyProfile.find({companyId:_id})
 
-    console.log(profile[0]._id)
+    
     const profileId= profile[0]._id
 
     const updated = await CompanyProfile.findByIdAndUpdate({_id:profileId},
