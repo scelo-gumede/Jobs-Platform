@@ -4,7 +4,7 @@ import axios from "axios"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import {z} from "zod"
-import { setToken } from "../store/slices/tokenSlice"
+import { setToken } from "../../store/slices/tokenSlice"
 import { useDispatch, UseDispatch } from "react-redux"
 
 
@@ -27,12 +27,11 @@ const Login = () => {
 
   const submitData =async (data:Login)=>{
 
-    console.log(data)
-
     try{
       const response = await axios.post("http://localhost:4000/auth/login",{...data})
       if(response.status == 200){
         dispatch(setToken(response.data.token))
+        localStorage.setItem("token",response.data.token)
         navigate("/home-signed-in")
       }else{
         return
