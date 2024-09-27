@@ -1,7 +1,7 @@
 import { Router } from "express";
-import {shemaCompanyProfile} from "../middleware/profilemiddleware"
-import { createProfile,updateProfile } from "../controllers/company";
-import userRole from "../middleware/companyUserRole";
+import {shemaCompanyProfile} from "../../middleware/company/profilemiddleware"
+import { createProfile,updateProfile } from "../../controllers/company/company";
+import userRole from "../../middleware/company/companyUserRole";
 
 const router = Router()
 

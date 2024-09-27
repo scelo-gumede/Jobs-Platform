@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes"
-import { generateError } from "../errors/customError"
+import { generateError } from "../../errors/customError"
 
 
 

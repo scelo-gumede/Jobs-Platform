@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import { schemaProfile } from "../models/companyProfileSchema";
-import { generateError } from "../errors/customError";
+import { schemaProfile } from "../../models/company/companyProfileSchema";
+import { generateError } from "../../errors/customError";
 
 
 export const shemaCompanyProfile =(req,res,next)=>{

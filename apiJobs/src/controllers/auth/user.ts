@@ -1,8 +1,8 @@
-import {User} from "../models/userSchema"
+import {User} from "../../models/auth/userSchema"
 import { StatusCodes } from "http-status-codes"
-import { generateError } from "../errors/customError"
-import { unauthenticated } from "../errors/unathenticated"
-import { transporter } from "../server"
+import { generateError } from "../../errors/customError"
+import { unauthenticated } from "../../errors/unathenticated"
+import { transporter } from "../../server"
 
 
 export const register = async (req,res)=>{

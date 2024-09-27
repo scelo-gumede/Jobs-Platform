@@ -1,7 +1,7 @@
 import {Router} from "express"
-import userValidSchema from "../middleware/userValidatemiddleware"
-import { register,signIn,resetLinkPass } from "../controllers/user"
-import { emailUniqueness } from "../middleware/emailUniqueness"
+import userValidSchema from "../../middleware/general/userValidatemiddleware"
+import { register,signIn,resetLinkPass } from "../../controllers/auth/user"
+import { emailUniqueness } from "../../middleware/general/emailUniqueness"
 
 const router = Router()
 

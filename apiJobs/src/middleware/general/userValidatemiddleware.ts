@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import { generateError } from "../errors/customError";
-import {schema} from "../models/userSchema"
+import { generateError } from "../../errors/customError";
+import {schema} from "../../models/auth/userSchema"
 
 
 const userValidSchema = async(req,res,next)=>{

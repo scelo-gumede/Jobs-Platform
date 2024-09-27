@@ -1,5 +1,5 @@
-import { User } from "../models/userSchema";
-import { UserProfile } from "../models/userProfileSchema";
+import { User } from "../../models/auth/userSchema";
+import { UserProfile } from "../../models/users/userProfileSchema";
 import { StatusCodes } from "http-status-codes";
 
 

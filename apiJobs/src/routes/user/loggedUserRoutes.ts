@@ -1,7 +1,7 @@
 import { Router } from "express";
-import schemaValidation from "../middleware/userProfileValidate";
-import { userprofile,updateprofile } from "../controllers/loggedUsers";
-import userRoleAuth from "../middleware/userRole";
+import schemaValidation from "../../middleware/user/userProfileValidate";
+import { userprofile,updateprofile } from "../../controllers/users/loggedUsers";
+import userRoleAuth from "../../middleware/user/userRole";
 
 const router = Router()
 

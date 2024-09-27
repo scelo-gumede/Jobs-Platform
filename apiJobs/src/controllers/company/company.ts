@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import { CompanyProfile } from "../models/companyProfileSchema";
-import { User } from "../models/userSchema";
+import { CompanyProfile } from "../../models/company/companyProfileSchema";
+import { User } from "../../models/auth/userSchema";
 
 
 export const createProfile = async(req,res)=>{

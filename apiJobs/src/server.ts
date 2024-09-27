@@ -2,15 +2,15 @@ const express = require("express")
 require("express-async-errors")
 require("dotenv").config()
 const mongoose = require('mongoose');
-import errMiddleware from "./middleware/endMiddleware";
-import notFound from "./middleware/notFound";
-import userRoute from "./routes/userRoutes"
+import errMiddleware from "./middleware/general/endMiddleware";
+import notFound from "./middleware/general/notFound";
+import userRoute from "./routes/auth/userRoutes"
 import nodemailer from "nodemailer"
-import loggedIn from "./routes/companyRoutes"
-import auth from "./middleware/authMiddleware";
-import userProfile from "./routes/loggedUserRoutes"
-import jobs from "./routes/jobsRoutes"
-import apply from "./routes/applicationRoutes"
+import loggedIn from "./routes/company/profile"
+import auth from "./middleware/general/authMiddleware";
+import userProfile from "./routes/user/loggedUserRoutes"
+import jobs from "./routes/company/jobs"
+import apply from "./routes/user/applicationRoutes"
 import cors from "cors"
 
 

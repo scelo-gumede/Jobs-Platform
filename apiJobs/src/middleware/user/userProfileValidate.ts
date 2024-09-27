@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes"
-import { generateError } from "../errors/customError"
-import { schemaUserProfile } from "../models/userProfileSchema"
+import { generateError } from "../../errors/customError"
+import { schemaUserProfile } from "../../models/users/userProfileSchema"
 
 
 const schemaValidation = async(req,res,next)=>{

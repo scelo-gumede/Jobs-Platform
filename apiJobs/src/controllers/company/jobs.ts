@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { Job } from "../models/jobsSchema";
+import { Job } from "../../models/company/jobsSchema";
 
 
 

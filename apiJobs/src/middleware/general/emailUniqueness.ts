@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes"
-import { generateError } from "../errors/customError"
-import { User } from "../models/userSchema"
+import { generateError } from "../../errors/customError"
+import { User } from "../../models/auth/userSchema"
 
 
 export const emailUniqueness = async(req,res,next)=>{

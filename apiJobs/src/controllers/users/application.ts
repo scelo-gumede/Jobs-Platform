@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
-import { generateError } from "../errors/customError";
-import { Application,applicationJoi } from "../models/applicationSchema";
+import { generateError } from "../../errors/customError";
+import { Application,applicationJoi } from "../../models/users/applicationSchema";
 
 
 

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import userRole from "../middleware/companyUserRole";
-import { postJob, updateJOb } from "../controllers/jobs";
-import jobsMiddleware from "../middleware/jobValidator";
+import userRole from "../../middleware/company/companyUserRole";
+import { postJob, updateJOb } from "../../controllers/company/jobs";
+import jobsMiddleware from "../../middleware/company/jobValidator";
 
 
 const router = Router()

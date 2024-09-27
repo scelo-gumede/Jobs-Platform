@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes"
 import jsonwebtoken from "jsonwebtoken"
-import {User} from "../models/userSchema"
-import { unauthenticated } from "../errors/unathenticated"
-import { generateError } from "../errors/customError"
+import {User} from "../../models/auth/userSchema"
+import { unauthenticated } from "../../errors/unathenticated"
+import { generateError } from "../../errors/customError"
 
 const jwt =jsonwebtoken
 
