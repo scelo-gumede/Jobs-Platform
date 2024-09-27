@@ -3,11 +3,12 @@ import PublicRoutesLayouts from "./PublicAndPrivate/PublicRoutesLayouts";
 import PrivateRoutesLayouts from "./PublicAndPrivate/PrivateRoutesLayouts";
 import Login from "./pages/public/Login";
 import Register from "./pages/public/Register";
-import HomeLoggedIn from "./pages/private/HomeLoggedIn";
 import Home from "./pages/public/Home";
 import HomeLayouts from "./layouts/public/HomeLayouts";
 import AuthLayouts from "./layouts/public/AuthLayouts";
-
+import LayoutHome from "./pages/private/users/layouts/LayoutHome";
+import HomeUser from "./pages/private/users/pages/HomeUser";
+import Profile from "./pages/private/users/pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -40,8 +41,18 @@ const router = createBrowserRouter([
         path:"/",
         element:<PrivateRoutesLayouts />,
         children:[{
-            path:"/home-signed-in",
-            element:<HomeLoggedIn />
+            path:"home/:id",
+            element:<LayoutHome />,
+            children:[
+                {
+                    index:true,
+                    
+                    element:<HomeUser />
+                },{
+                    path:"profile",
+                    element:<Profile />
+                }
+            ]
         }]
     }
 ])

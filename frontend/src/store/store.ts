@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tokenSlice from "./slices/tokenSlice";
+import userIdSlice from "./slices/userIdSlice";
 
 export const store = configureStore({
     reducer:{
-        token:tokenSlice
+        token:tokenSlice,
+        userId:userIdSlice
     }
 })
 

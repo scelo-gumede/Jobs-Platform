@@ -6,8 +6,12 @@ import { useNavigate } from "react-router-dom"
 import {z} from "zod"
 import { setToken } from "../../store/slices/tokenSlice"
 import { useDispatch, UseDispatch } from "react-redux"
+import { jwtDecode } from "jwt-decode"
 
-
+interface Jwt{
+  userId:string,
+  name:string
+}
 
 const Login = () => {
   const navigate = useNavigate()
@@ -32,7 +36,12 @@ const Login = () => {
       if(response.status == 200){
         dispatch(setToken(response.data.token))
         localStorage.setItem("token",response.data.token)
-        navigate("/home-signed-in")
+        const decoded=jwtDecode<Jwt>(response.data.token)
+        
+
+        console.log(decoded?.userId)
+        navigate(`/home/${decoded.userId}`,{replace:true})
+        
       }else{
         return
       }
