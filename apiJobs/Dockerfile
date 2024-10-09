@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 5000
+EXPOSE 4000
 
 # Start the application using nodemon
 CMD ["npx", "nodemon", "server.ts"]  # Change to your main server file if different
